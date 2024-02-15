@@ -1,0 +1,97 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container{
+  background: #f8effe;
+  height: 100vh;
+  width: 100vw;
+  padding-left: 40px;
+  padding-top: 40px;
+  display: flex;
+  gap: 30px;
+}
+
+.btn{
+  height: 30px;
+  width: 100px;
+  background: #333333;
+  color: white;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+#toastBox{
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.toast{
+  width: 400px;
+  height: 80px;
+  background: #fff;
+  font-weight: 500;
+  margin: 15px 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  position: relative;
+  transform: translateX(100%);
+  animation: moveleft 0.5s linear forwards;
+}
+
+@keyframes moveleft{
+  100%{
+    transform: translateX(0);
+  }
+}
+
+.toast i{
+  margin: 0 20px;
+  font-size: 35px;
+  color: green;
+
+}
+
+.toast.error i{
+  color: red;
+}
+
+.toast.invalid i{
+  color: orange;
+}
+
+.toast::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  background: green;
+  animation: anim 2s linear forwards;
+}
+
+@keyframes anim{
+  100%{
+    width: 0;
+  }
+}
+
+.toast.error::after{
+  background: red;
+}
+
+.toast.invalid::after{
+  background: orange;
+}
